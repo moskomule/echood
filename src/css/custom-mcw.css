@@ -1,3 +1,31 @@
+main {
+    padding-top: 20px;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+button {
+    outline: none;
+}
+
+.mdc-list {
+    padding: 10px;
+}
+
+.mdc-list .mdc-switch {
+    padding-left: 10px;
+}
+
+.mdc-form-field {
+    padding-left: 10px;
+}
+
+.mdc-list-item {
+    font-size: 1.2rem;
+}
+
 #main {
     padding-left: 10px;
 }
@@ -15,10 +43,4 @@
 
 .copy_button {
     margin-top: 20px;
-    /*border: 0px;*/
-    /*padding: 0px;*/
-}
-
-button {
-    outline: none;
 }
