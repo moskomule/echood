@@ -1,0 +1,12 @@
+{
+    "numerical": {
+        "lr": 0.1,
+        "beta": 0.99
+    },
+    "single-choice": {
+        "model": ["ResNet", "VGG"]
+    },
+    "multi-choice": {
+        "augmentation": [["flip"], "crop"]
+    }
+}

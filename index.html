@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>echood</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="src/css/material-components-web.css" />
+    <link rel="stylesheet" href="src/css/custom-mcw.css" />
+    <script src="src/js/render.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+    <script src="src/js/material-components-web.js"></script>
+    <script src="src/js/process.js"></script>
+    <!-- avoid D&D-->
+    <script>
+        document.ondragover = document.ondrop = (event) => {
+            event.preventDefault();
+            return false;
+        };
+    </script>
+
+</head>
+
+<body>
+    <div class="top">
+        <div class="mdc-toolbar mdc-toolbar--fixed">
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+                <div class="mdc-toolbar__row">
+                    <span class="mdc-toolbar__title">échood</span>
+                </div>
+            </section>
+            <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+                <button class="header-menu material-icons mdc-toolbar__icon--menu" onclick="loadConfig()" title="load"><i class="material-icons">arrow_downward</i></button>
+            </section>
+        </div>
+    </div>
+
+    <main>
+        <div class="mdc-toolbar-fixed-adjust"></div>
+        <section id="main">
+            <div id="container"></div>
+        </section>
+        <hr class="mdc-list-divider" />
+        <section id="button_area">
+            <div id="save_button"></div>
+            <div id="saved_name"></div>
+        </section>
+    </main>
+</body>
+<script>
+    adjustPosition();
+    new Clipboard('.clipboard');
+</script>
+
+
+</html>
