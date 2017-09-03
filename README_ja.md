@@ -1,32 +1,34 @@
 # échood
 
-étood is an electron based GUI assistant to configure machine learning settings.
+échoodはelectronベースのGUIによる機械学習の設定ファイル作成支援ソフトです
 
-## how to use
+## 使用方法
 
-étood uses Electron so `node.js` and `npm` are required.
+échoodはElectronを使用しています
+
+`node.js`と`npm`が必要です
 
 ```bash
 git clone https://github.com/moskomule/étude.git
 npm start
 ```
 
-1. Push the button right above and load an étood's configuration（[example](example/config/master_config.json)）
+1. 右上のボタンを押してétudeの設定ファイルを読み込みます（[例](example/config/master_config.json)）
     ![](doc/img/start.png)
 
-2. If you need overwrite default values.
+2. 必要があれば値を書き換えます
 ![](doc/img/loaded.png)
 
-3. Push `save` button to specify the output directory. Currently output file name is fixed to `config.json`.
+3. `save`ボタンを押して保存先のディレクトリを指定します(いまのところ保存されるファイル名は固定`config.json`です)
 ![](doc/img/saving.png)
 
-4. An ID of saved configuration will be appeared under `save` button. If you tap it then it's copied to the clipboard.
+4. `save`ボタンの下に保存した設定のIDが表示されます（タップすることでクリップボードにコピーされます）
 ![](doc/img/saved.png)
 
-5. Train/inference with the configuration.
-    + example:`python train.py 1504444726784`
+5. 出力設定ファイルを用いて学習・推論を行います
+    + 例:`python train.py 1504444726784`
 
-### input example
+### 入力例
 
 ```json
 {
@@ -48,7 +50,7 @@ npm start
     + You can choose only one element in `"single-choice"`. First one is the default.
     + You can choose multiple elements in `"multi-choice"`. Elements in the first array are default.
 
-### output example(`config.json`)
+### 出力例(`config.json`)
 
 ```json
 {
