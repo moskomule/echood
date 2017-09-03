@@ -1,17 +1,17 @@
 # échood
 
-étood is an electron based GUI assistant tool to configure machine learning settings.
+échood is an electron based GUI assistant tool to configure machine learning settings.
 
 ## how to use
 
-étood uses Electron so `node.js` and `npm` are required.
+échood uses Electron so `node.js` and `npm` are required.
 
 ```bash
-git clone https://github.com/moskomule/étude.git
+git clone https://github.com/moskomule/echood.git
 npm start
 ```
 
-1. Push the button right above and load an étood's configuration（[example](example/config/master_config.json)）
+1. Push the button right above and load an échood's configuration（[example](example/config/master_config.json)）
     ![](doc/img/start.png)
 
 2. If you need overwrite default values.
