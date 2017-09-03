@@ -49,24 +49,22 @@ function _render(config, type) {
                 </div>`;
                 break;
             case "single-choice":
-                str += `<div class="mdc-list">`;
                 for (let index in _config[key]) {
                     let choice = _config[key][index];
                     let checkOrNot = (index == 0) ? "checked" : "";
                     str += `
                     <div class="mdc-form-field">
                         <div class="mdc-radio">
-                            <input class="mdc-radio__native-control echood-single-choice" type="radio" id="${key + choice}" name="${choice}" ${checkOrNot} />
+                            <input class="mdc-radio__native-control echood-single-choice" type="radio" id="${key + choice}" name="${key}" ${checkOrNot} />
                             <div class="mdc-radio__background">
                                 <div class="mdc-radio__outer-circle"></div>
                                 <div class="mdc-radio__inner-circle"></div>
                             </div>
                         </div>
-                        <label for="${key + choice}" id="${key + choice + "_l"}">${choice}</label>
+                        <label for="${key + choice}" id="${key + choice + "_label"}">${choice}</label>
                     </div>
                     `;
                 }
-                str += `</div>`;
                 break;
             case "multi-choice":
                 let choices = _config[key]
@@ -76,9 +74,9 @@ function _render(config, type) {
                     let checkOrNot = (index < choices[0].length) ? "checked" : "";
                     str += `
                     <div class="mdc-list">
-                        <h3 class="mdc-list-item">${choice}</h3>
+                        <span class="mdc-list-item">${choice}</span>
                         <div class="mdc-switch">
-                            <input type="checkbox" id="${key + choice}" name="${choice}" class="mdc-switch__native-control echood-multi-choice" ${checkOrNot} />
+                            <input type="checkbox" id="${key + choice}" name="${key}" class="mdc-switch__native-control echood-multi-choice" ${checkOrNot} />
                             <div class="mdc-switch__background">
                                 <div class="mdc-switch__knob"></div>
                             </div>
@@ -99,7 +97,8 @@ function saveFilledData() {
 
 function getFilledData() {
     let jsonObj = {};
-    let getKey = (e) => e.id.slice(0, e.id.length - e.name.length);
+    let getKey = (e) => e.name;
+    let getChoice = (e) => e.id.slice(e.name.length, e.id.length);
     let nElements = document.getElementsByClassName("echood-numerical");
     nElements.forEach((e) => {
         jsonObj[e.id] = e.value;
@@ -110,7 +109,7 @@ function getFilledData() {
         jsonObj[k] = sElements.map((e) => [getKey(e), e]) // key -> elem
             .filter((p) => p[0] === k) // if key is k
             .filter((p) => p[1].checked)
-            .map((p) => p[1].name)[0]; // if elem.checked. non-array is needed
+            .map((p) => getChoice(p[1]))[0]; // if elem.checked. non-array is needed
     });
     let mElements = document.getElementsByClassName("echood-multi-choice");
     let mKeys = new Set(mElements.map((e) => getKey(e)));
@@ -118,7 +117,7 @@ function getFilledData() {
         jsonObj[k] = mElements.map((e) => [getKey(e), e]) // key -> elem
             .filter((p) => p[0] === k) // if key is k
             .filter((p) => p[1].checked)
-            .map((p) => p[1].name); // if elem.checked.
+            .map((p) => getChoice(p[1])); // if elem.checked.
     });
     return jsonObj;
 }
@@ -157,9 +156,9 @@ const showSaveButton = () => document.getElementById('save_button').innerHTML =
 const showSaveDoneButton = () => document.getElementById('save_button').innerHTML =
 `<button class="mdc-button mdc-button--raised mdc-button--accent" onclick="saveFilledData()">saved</button>`;
 const showSavedKey = (key) => document.getElementById('saved_name').innerHTML = `
-    <button class="clipboard copy_button mdc-button mdc-button--raised" data-clipboard-text="train ${key}" title="copy">
-        <code>train ${key}</code>
-    </ button>`;
+    <button class="clipboard copy_button mdc-button mdc-button--raised" data-clipboard-text="${key}" title="copy">
+        <code>${key}</code>
+    </button>`;
 const sleep = (msec) => new Promise(resolve => setTimeout(resolve, msec));
 
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
