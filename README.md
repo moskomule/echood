@@ -1,6 +1,6 @@
 # échood
 
-étood is an electron based GUI assistant to configure machine learning settings.
+étood is an electron based GUI assistant tool to configure machine learning settings.
 
 ## how to use
 
