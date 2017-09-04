@@ -1,6 +1,6 @@
 # échood
 
-échood is an electron based GUI assistant tool to configure machine learning settings.
+échood is an electron based GUI assistant tool to configure machine learning projects.
 
 ## how to use
 
@@ -60,6 +60,8 @@ npm start
     }
 }
 ```
+
+[example](example) directory contains a pseudo sample code.
 
 ## why échood?
 
