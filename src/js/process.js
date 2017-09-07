@@ -101,7 +101,7 @@ function getFilledData() {
     let getChoice = (e) => e.id.slice(e.name.length, e.id.length);
     let nElements = document.getElementsByClassName("echood-numerical");
     nElements.forEach((e) => {
-        jsonObj[e.id] = e.value;
+        jsonObj[e.id] = Number(e.value);
     });
     let sElements = document.getElementsByClassName("echood-single-choice");
     let sKeys = new Set(sElements.map((e) => getKey(e)));

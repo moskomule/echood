@@ -1,8 +1,8 @@
 {
-    "1504451138954": {
-        "lr": "0.01",
-        "beta": "0.99",
+    "1504759119369": {
+        "lr": 0.01,
+        "beta": 0.99,
         "model": "ResNet",
-        "augmentation": ["flip", "crop"]
+        "augmentation": ["flip"]
     }
 }
