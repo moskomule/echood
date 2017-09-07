@@ -53,8 +53,8 @@ npm start
 ```json
 {
     "1504451138954": {
-        "lr": "0.01",
-        "beta": "0.99",
+        "lr": 0.01,
+        "beta": 0.99,
         "model": "ResNet",
         "augmentation": ["flip", "crop"]
     }
